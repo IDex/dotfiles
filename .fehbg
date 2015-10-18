@@ -1,0 +1,2 @@
+#!/bin/sh
+feh  --bg-fill '/home/ide/Downloads/i3wp/1920_1080.jpg' 
