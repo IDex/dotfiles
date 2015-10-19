@@ -29,6 +29,7 @@ set sw=4 ts=4 sts=4 expandtab
 set fdm=indent
 set showcmd
 "let g:Imap_UsePlaceHolders=0
+let g:syntastic_python_checkers = ['pylint', 'flake8']
 let g:pymode_python = 'python3'
 let g:pymode_doc_bind = "<C-S-d>"
 let g:pymode_rope_autoimport = 0

@@ -1,10 +1,25 @@
 # addons
-source ~/git/zsh-history-substring-search/zsh-history-substring-search.zsh
+source git/antigen/antigen.zsh
+
+antigen bundle git
+antigen bundle zsh-users/zsh-history-substring-search
+
+# Load the theme.
+# antigen theme robbyrussell
+
+# Tell antigen that you're done.
+antigen apply
+
+# bind UP and DOWN arrow keys
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
-# Lines configured by zsh-newuser-install
+# bind UP and DOWN arrow keys (compatibility fallback
+# for Ubuntu 12.04, Fedora 21, and MacOSX 10.9 users)
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+#Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
@@ -65,7 +80,7 @@ alias ardis="sudo ~/aalto/sähköpaja/teensy/arduino-1.0.5/arduino"
 alias hdp="sudo hdparm -B 255 /dev/sda"
 alias sorter="$SCRIPTS/filemover.py"
 alias nfsenable="sudo systemctl start rpc-idmapd ; sudo systemctl start rpc-mountd"
-alias w="python $SCRIPTS/watcher.py"
+alias wa="python $SCRIPTS/watcher.py"
 alias pydoc="evince Downloads/py3doc/docs-pdf/library.pdf &"
 
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
@@ -103,6 +118,7 @@ ex ()
 }
 
 #Funkcs
+h(){nohup $* >>/dev/null 2>&1 &}
 booru(){
 cd ~/git/BatchBooruDownloader/
 python BatchBooru.py $1 $2
