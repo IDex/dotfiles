@@ -1,7 +1,7 @@
 " Vundle shit
 set nocompatible              " be iMproved, required
 filetype off                  " required
-set rtp+=/home/ide/.vim/bundle/Vundle.vim
+set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " Plugin 'Lokaltog/vim-easymotion'

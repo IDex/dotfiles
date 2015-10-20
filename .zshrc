@@ -41,6 +41,7 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 #Alias
 SCRIPTS="~/git/scripts"
+alias tq='trackma-qt'
 alias xc="xclip -o"
 alias alarm="python $SCRIPTS/alarm.py"
 alias sank="python ~/sankaku.py"
