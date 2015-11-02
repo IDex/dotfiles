@@ -8,11 +8,12 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'vim-latex/vim-latex'
 " Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/ctags.vim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'Lokaltog/powerline'
-Plugin 'klen/python-mode'
+Plugin 'tell-k/vim-autopep8'
+" Plugin 'klen/python-mode'
 call vundle#end()            " required
 filetype plugin indent on    " required
 autocmd BufRead *.py nmap <F5> :!python %<CR>
@@ -24,8 +25,7 @@ filetype plugin indent on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 " set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
-set sw=4 ts=4 sts=4 expandtab
-" set tw=79
+set sw=4 ts=4 sts=4 et
 set fdm=indent
 set showcmd
 "let g:Imap_UsePlaceHolders=0
@@ -36,8 +36,19 @@ let g:pymode_rope_autoimport = 0
 let g:pymode_rope = 0 
 let g:pymode_rope_lookup_project = 0 
 let g:pymode_rope_complete_on_dot = 0
-let mapleader=","
+let g:autopep8_disable_show_diff=1
+let mapleader="å"
 cmap w!! w !sudo tee % >/dev/null 
+" map = recursive -> current meaning of target
+" noremap = non-recursive -> original meaning of target
+autocmd Filetype python nmap <return> :!python3 %<CR>
+autocmd Filetype python nmap <leader>g <C-]>
+autocmd Filetype python nmap <leader>l :redraw!<CR>
+autocmd Filetype python nmap <leader>a :Autopep8<CR>
+nmap <leader>c :lcd %:p:h<CR>
+map + <C-W>+
+map - <C-W>-
+map <leader>= <C-W>=
 nnoremap <space> za
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
@@ -49,4 +60,4 @@ nmap J 5j
 nmap K 5k
 map <Esc><Esc> :w<CR>
 set fileencodings=ucs-bom,utf-8,sjis,default
-set acd
+set nohlsearch

@@ -41,6 +41,7 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 #Alias
 SCRIPTS="~/git/scripts"
+alias vim='nvim'
 alias tq='trackma-qt'
 alias xc="xclip -o"
 alias alarm="python $SCRIPTS/alarm.py"
@@ -161,3 +162,4 @@ youtube-dl -g $1 | xargs mpv
 export TERMINAL="xfce4-terminal"
 export EDITOR="vim"
 export VISUAL="vim"
+export BROWSER="firefox"
