@@ -13,11 +13,12 @@ Plugin 'vim-scripts/ctags.vim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'Lokaltog/powerline'
 Plugin 'tell-k/vim-autopep8'
+Plugin 'tpope/vim-fugitive'
 " Plugin 'klen/python-mode'
 call vundle#end()            " required
 filetype plugin indent on    " required
 autocmd BufRead *.py nmap <F5> :!python %<CR>
-autocmd BufRead *.tex nmap <F6> :!pdflatex %<CR>
+autocmd BufRead *.tex nmap <return> :!pdflatex -interaction=batchmode %<CR>
 autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 set background=dark
 syntax on
@@ -30,6 +31,8 @@ set fdm=indent
 set showcmd
 "let g:Imap_UsePlaceHolders=0
 let g:syntastic_python_checkers = ['pylint', 'flake8']
+let g:syntastic_html_checkers = ['tidy', 'jslint']
+let g:syntastic_javascript_checkers = ['jshint', 'jslint']
 let g:pymode_python = 'python3'
 let g:pymode_doc_bind = "<C-S-d>"
 let g:pymode_rope_autoimport = 0
