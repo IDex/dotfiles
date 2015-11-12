@@ -11,7 +11,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/ctags.vim'
 Plugin 'vim-scripts/taglist.vim'
-Plugin 'Lokaltog/powerline'
+Plugin 'powerline/powerline'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'tpope/vim-fugitive'
 " Plugin 'klen/python-mode'
@@ -45,9 +45,9 @@ cmap w!! w !sudo tee % >/dev/null
 " map = recursive -> current meaning of target
 " noremap = non-recursive -> original meaning of target
 autocmd Filetype python nmap <return> :!python3 %<CR>
-autocmd Filetype python nmap <leader>g <C-]>
 autocmd Filetype python nmap <leader>l :redraw!<CR>
 autocmd Filetype python nmap <leader>a :Autopep8<CR>
+nmap <leader>g <C-]>
 nmap <leader>c :lcd %:p:h<CR>
 map + <C-W>+
 map - <C-W>-
@@ -64,3 +64,4 @@ nmap K 5k
 map <Esc><Esc> :w<CR>
 set fileencodings=ucs-bom,utf-8,sjis,default
 set nohlsearch
+set smartcase
