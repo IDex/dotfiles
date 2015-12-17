@@ -37,8 +37,10 @@ autoload -Uz promptinit
 promptinit
 prompt redhat
 
+# Find keycodes with C-V+[keycombination]
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
 #Alias
 SCRIPTS="~/git/scripts"
 alias vim='nvim'

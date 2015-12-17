@@ -1,1 +1,4 @@
 # Write your default config options here!
+softvol-max=600
+vo=opengl-hq
+#af=volume=5

@@ -14,6 +14,7 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'powerline/powerline'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'tpope/vim-fugitive'
+Plugin 'ap/vim-templates'
 " Plugin 'klen/python-mode'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -48,10 +49,17 @@ autocmd Filetype python nmap <return> :!python3 %<CR>
 autocmd Filetype python nmap <leader>l :redraw!<CR>
 autocmd Filetype python nmap <leader>a :Autopep8<CR>
 nmap <leader>g <C-]>
-nmap <leader>c :lcd %:p:h<CR>
-map + <C-W>+
-map - <C-W>-
-map <leader>= <C-W>=
+nmap <leader>c :cd %:p:h<CR>
+nmap <leader>l :lcd %:p:h<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gd :Gdiff<CR>
+nmap <leader>gp :Gpush<CR>
+nmap <leader>gg :Gpull<CR>
+nmap <leader>= <C-W>=
+nmap + <C-W>+
+nmap - <C-W>-
+map <leader>yc "+y
 nnoremap <space> za
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
@@ -59,9 +67,11 @@ nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
 nnoremap j gj
 nnoremap k gk
-nmap J 5j
-nmap K 5k
+map J 5j
+map K 5k
 map <Esc><Esc> :w<CR>
 set fileencodings=ucs-bom,utf-8,sjis,default
 set nohlsearch
 set smartcase
+set notimeout
+set ttimeout
