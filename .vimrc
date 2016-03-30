@@ -5,7 +5,7 @@ set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " Plugin 'Lokaltog/vim-easymotion'
-" Plugin 'vim-latex/vim-latex'
+ Plugin 'vim-latex/vim-latex'
 " Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'scrooloose/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -14,7 +14,8 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'powerline/powerline'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'tpope/vim-fugitive'
-Plugin 'ap/vim-templates'
+" Plugin 'ap/vim-templates'
+Plugin 'vim-scripts/Vimchant'
 " Plugin 'klen/python-mode'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -29,11 +30,18 @@ let g:tex_flavor = "latex"
 " set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
 set sw=4 ts=4 sts=4 et
 set fdm=indent
+set foldnestmax=2
+set foldlevel=0
 set showcmd
 "let g:Imap_UsePlaceHolders=0
-let g:syntastic_python_checkers = ['pylint', 'flake8']
+let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_html_checkers = ['tidy', 'jslint']
 let g:syntastic_javascript_checkers = ['jshint', 'jslint']
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {
+        \ "mode": "active",
+        \ "active_filetypes": [],
+        \ "passive_filetypes": ["python"] }
 let g:pymode_python = 'python3'
 let g:pymode_doc_bind = "<C-S-d>"
 let g:pymode_rope_autoimport = 0
@@ -43,14 +51,23 @@ let g:pymode_rope_complete_on_dot = 0
 let g:autopep8_disable_show_diff=1
 let mapleader="å"
 cmap w!! w !sudo tee % >/dev/null 
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+"if executable('ag')
+"  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"endif
 " map = recursive -> current meaning of target
 " noremap = non-recursive -> original meaning of target
 autocmd Filetype python nmap <return> :!python3 %<CR>
 autocmd Filetype python nmap <leader>l :redraw!<CR>
 autocmd Filetype python nmap <leader>a :Autopep8<CR>
+autocmd Filetype html nmap <return> :!firefox %<CR>
+autocmd Filetype html set sw=2 ts=2 sts=2 et
 nmap <leader>g <C-]>
 nmap <leader>c :cd %:p:h<CR>
 nmap <leader>l :lcd %:p:h<CR>
+nmap <leader>e :Explore<CR>
+nmap <leader>p :CtrlP ./<CR>
+nmap <leader>s :SyntasticCheck<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gd :Gdiff<CR>
@@ -71,7 +88,9 @@ map J 5j
 map K 5k
 map <Esc><Esc> :w<CR>
 set fileencodings=ucs-bom,utf-8,sjis,default
+set encoding=utf-8
 set nohlsearch
 set smartcase
 set notimeout
 set ttimeout
+set ic

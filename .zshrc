@@ -43,11 +43,17 @@ bindkey "^[[1;5D" backward-word
 
 #Alias
 SCRIPTS="~/git/scripts"
+alias vga='xrandr --output VGA1 --auto --right-of LVDS1'
+alias jn='jupyter notebook'
+alias ums='~/software/ums-6.0.0/UMS.sh'
+alias ve-chat='source ~/tmp/chat/bin/activate'
+alias pm='python manage.py'
+alias pdf='nohup evince'
 alias vim='nvim'
 alias tq='trackma-qt'
 alias xc="xclip -o"
 alias alarm="python $SCRIPTS/alarm.py"
-alias sank="python ~/sankaku.py"
+alias sank="python ~/sanka/sankaku.py"
 alias gits="git status"
 alias irc="ssh itajari1@kosh.aalto.fi"
 alias f="fish"

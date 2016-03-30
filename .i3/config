@@ -17,15 +17,15 @@ assign [class="^Pidgin"] 2
 # Notifyd notification windows float
 for_window [class="Xfce4-notifyd"] floating enable, border none, focus mode_toggle
 # Mouse focus
-focus_follows_mouse yes 
+focus_follows_mouse no
 # Set layout
 bindsym $mod+n exec sh /home/ide/.i3/7i3.sh
 # brightness control
 bindsym XF86MonBrightnessDown exec xbacklight -dec 1
 bindsym XF86MonBrightnessUp exec xbacklight -inc 1
 # volume
-bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 4dB-
-bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 4dB+
+#bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 4dB-
+#bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 4dB+
 # Switch bg
 bindsym $mod+o exec sh ~/.fehbga
 # bindsym $mod+p exec i3lock -i ~/Downloads/i3wp/7ec.png && exec sudo pm-suspend
@@ -40,7 +40,7 @@ bindsym $mod+i exec python ~/.i3/ntoggle.py
 # Ctrl+Enter -> open terminal in pwd
 bindsym $mod+Ctrl+Return exec sh ~/.i3/there.sh 
 
-#exec pa-applet
+exec pa-applet
 exec nm-applet
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -56,7 +56,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec xfce4-terminal #i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
